@@ -5,3 +5,5 @@ log.txt
 notes.txt
 celerybeat*
 .vscode
+reddit/config.py
+SMBackend/config.py
