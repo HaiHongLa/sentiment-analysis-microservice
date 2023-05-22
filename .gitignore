@@ -6,4 +6,6 @@ notes.txt
 celerybeat*
 .vscode
 /reddit/config.py
+/reddit/__pycache__/
 /SMBackend/config.py
+/SMBackend/__pycache__/
