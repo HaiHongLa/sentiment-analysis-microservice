@@ -1,9 +1,9 @@
-__pycache__/
+/__pycache__/
 db.sqlite3
 error.txt
 log.txt
 notes.txt
 celerybeat*
 .vscode
-reddit/config.py
-SMBackend/config.py
+/reddit/config.py
+/SMBackend/config.py
