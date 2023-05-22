@@ -1,3 +1,0 @@
-CLIENT_ID = 'x3NEFRrz4i9mB2CqulymAg'
-CLIENT_SECRET = 'WqW50t2OrjXk6Y1CVTcpoHzNeqt6cg'
-USER_AGENT = 'LaHongHai'
