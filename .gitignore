@@ -9,3 +9,4 @@ celerybeat*
 /reddit/__pycache__/
 /SMBackend/config.py
 /SMBackend/__pycache__/
+/twitter/config.py

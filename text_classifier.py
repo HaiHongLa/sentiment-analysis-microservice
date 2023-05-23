@@ -3,10 +3,22 @@ import torch.nn as nn
 from sklearn.feature_extraction.text import CountVectorizer
 import pickle
 import time
+import re
+
+def preprocess_text(text):
+    # Convert to lowercase
+    text = text.lower()
+
+    # Remove special characters and keep only alphanumeric and whitespace characters
+    text = re.sub(r'[^a-zA-Z0-9\s]', '', text)
+
+    # Remove unnecessary blank spaces
+    text = re.sub(r'\s+', ' ', text).strip()
+
+    return text
 
 with open('ml_models/vectorizer.pkl', 'rb') as f:
     vectorizer = pickle.load(f)
-
 
 class TextClassifier(nn.Module):
     def __init__(self, input_size, hidden_size, num_classes):
@@ -30,10 +42,11 @@ model.load_state_dict(torch.load('ml_models/text_classifier_model.pt'))
 
 
 def classify_text_inputs(text_list):
+    preprocessed_texts = [preprocess_text(text) for text in text_list]
 
     # Load the saved model
     model.eval()
-    vectorized_text = vectorizer.transform(text_list).toarray()
+    vectorized_text = vectorizer.transform(preprocessed_texts).toarray()
 
     # Convert to torch tensor
     inputs = torch.from_numpy(vectorized_text).float()

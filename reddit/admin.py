@@ -1,3 +1,6 @@
 from django.contrib import admin
+from .models import RedditPost
 
-# Register your models here.
+@admin.register(RedditPost)
+class RedditPostAdmin(admin.ModelAdmin):
+    list_display = [field.name for field in RedditPost._meta.fields]
