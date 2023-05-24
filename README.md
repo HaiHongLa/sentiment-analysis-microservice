@@ -33,7 +33,7 @@ The Sentiment Analysis Microservice is a Django-based application currently unde
 
    ```bash
    git clone https://github.com/HaiHongLa/sentiment-analysis-microservice.git
-   cd your-project
+   cd sentiment-analysis-microservice
    ```
 2. Create a virtual environment and activate it:
 
