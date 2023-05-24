@@ -33,7 +33,6 @@ def post_dict(post):
 @api_view(['GET'])
 def get_post_by_id(request, post_id):
     post = get_object_or_404(RedditPost, post_id=post_id)
-    post.update()
     return JsonResponse({"post": post_dict(post)})
 
 

@@ -11,12 +11,11 @@ reddit = praw.Reddit(
     user_agent=USER_AGENT,
 )
 
-
 class RedditPost(models.Model):
     post_id = models.CharField(max_length=10)
     title = models.CharField(max_length=300)
     author = models.CharField(max_length=100)
-    submission_date = models.DateTimeField()
+    submission_date = models.DateTimeField(default=timezone.now)
     score = models.IntegerField()
     num_comments = models.IntegerField()
     num_top_level_comments = models.IntegerField()
@@ -25,7 +24,7 @@ class RedditPost(models.Model):
     thumbnail = models.URLField(max_length=200)
     permalink = models.URLField(max_length=200)
     sentiment = models.JSONField(null=True)
-    last_updated = models.DateTimeField()
+    last_updated = models.DateTimeField(default=timezone.now)
 
     def init_attributes(self, url):
         submission = reddit.submission(url=url)
@@ -81,7 +80,7 @@ class RedditPost(models.Model):
             updated_comments.append(comment.body)
         return updated_comments
 
-    def __str__(self):
+    def to_string(self):
         return (
             f"Post ID: {self.post_id}\n"
             f"Title: {self.title}\n"
@@ -97,3 +96,6 @@ class RedditPost(models.Model):
             f"Sentiment Analysis: {self.sentiment}"
             f"Last updated: {self.last_updated}"
         )
+    
+    def __str__(self):
+        return f"Reddit post ID {self.post_id} by {self.author}"

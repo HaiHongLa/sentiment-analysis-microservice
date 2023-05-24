@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     "corsheaders",
     'rest_framework',
     'reddit',
+    'twitter',
     'django_celery_beat',
 ]
 
