@@ -38,7 +38,8 @@ The Sentiment Analysis Microservice is a Django-based application currently unde
 2. Create a virtual environment and activate it:
 
     ```bash
-    pip install -r requirements.txt
+   python3 -m venv env
+   source env/bin/activate
     ```
 
 3. Install the required dependencies:
